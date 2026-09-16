@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tobias Hülden — Projects</title>
+<meta name="description" content="Tobias Hülden (Tobias Huelden) — Economist and Senior Applied Scientist at Zalando. Algorithmic pricing, digital experimentation, causal inference, and LLMs for economic measurement — evidence-based decision making at scale.">
+<!--
+  EDIT ME
+  - Set hrefs: LinkedIn (currently plain text, no link yet).
+  - Panels: paste abstracts, uncomment <img> lines and add figures to same folder.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,460;9..144,560&family=Public+Sans:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --ink:#16181C;
+    --slate:#6B7280;
+    --faint:#9AA1AB;
+    --hair:#ECEDEF;
+    --wash:#FAFAFB;
+    --oxblood:#8A2C36;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+
+  /* ---------- two-column layout ---------- */
+  .layout{max-width:1300px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 3fr;gap:64px;align-items:start;}
+  .sidebar{position:sticky;top:0;height:100vh;padding:64px 0 40px;display:flex;flex-direction:column;overflow-y:auto;}
+  .content{padding:64px 0 80px;}
+
+  /* ---------- sidebar ---------- */
+  .avatar{margin:0 0 24px;width:100%;max-width:230px;}
+  .avatar img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border:1px solid var(--hair);border-radius:4px;}
+  .sidebar h1{font-family:"Fraunces",serif;font-weight:340;font-size:30px;line-height:1.1;letter-spacing:-.012em;margin:0 0 12px;}
+  .role{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.02em;color:var(--slate);margin:0 0 26px;line-height:1.7;}
+
+  /* ---------- intro ---------- */
+  .intro{padding:0 0 52px;}
+  .lede{max-width:none;margin:0 0 26px;}
+  .lede p{text-wrap:pretty;font-size:16.5px;color:var(--slate);line-height:1.72;margin:0 0 15px;}
+  .lede p:last-child{margin-bottom:0;}
+  .lede b{color:var(--ink);font-weight:500;}
+  .nb{white-space:nowrap;}
+  .bio{text-wrap:pretty;margin:0 0 10px;font-size:15px;color:var(--slate);line-height:1.7;}
+  .bio a{color:var(--oxblood);text-decoration:none;border-bottom:1px solid var(--hair);padding-bottom:1px;transition:border-color .18s;}
+  .bio a:hover,.bio a:focus-visible{border-color:var(--oxblood);}
+
+  /* ---------- groups ---------- */
+  .group{padding-bottom:14px;scroll-margin-top:34px;}
+  .group-head{display:flex;justify-content:space-between;align-items:baseline;padding:20px 0 10px;border-top:1.5px solid var(--ink);}
+  .group-head h2{font-family:"Fraunces",serif;font-weight:460;font-size:26px;letter-spacing:-.012em;margin:0;}
+  .span{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--faint);letter-spacing:.04em;}
+  .group-note{font-size:14px;color:var(--faint);margin:2px 0 2px;}
+
+  /* ---------- experience ---------- */
+  .xco{padding:18px 0;border-top:1px solid var(--hair);}
+  .xco:first-of-type{border-top:none;}
+  .xco .co{font-weight:500;font-size:16px;color:var(--ink);margin:0 0 9px;}
+  .xrole{display:grid;grid-template-columns:84px 1fr;gap:18px;padding:3px 0;}
+  .xrole .yr{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--faint);letter-spacing:.02em;padding-top:2px;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .xrole .r{color:var(--slate);}
+  .xrole .r .area{color:var(--faint);}
+
+  /* ---------- education ---------- */
+  .edu{display:grid;grid-template-columns:84px 1fr;gap:18px;padding:22px 0;border-top:1px solid var(--hair);}
+  .edu:first-of-type{border-top:none;}
+  .edu .yr{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--faint);letter-spacing:.02em;padding-top:6px;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .edu h3{font-family:"Fraunces",serif;font-weight:460;font-size:20px;letter-spacing:-.008em;margin:0 0 4px;}
+  .edu .where{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--slate);letter-spacing:.02em;margin:0 0 6px;}
+  .edu .where .g{color:var(--faint);}
+  .edu .sub{font-size:13.5px;color:var(--faint);margin:0;}
+
+  /* ---------- paper item ---------- */
+  .item{border-top:1px solid var(--hair);}
+  .item:first-of-type{border-top:none;}
+  .row{display:grid;grid-template-columns:50px 1fr;gap:20px;width:100%;padding:26px 0;background:none;border:0;text-align:left;cursor:pointer;color:inherit;font-family:inherit;font-size:inherit;line-height:inherit;}
+  .row:focus-visible{outline:2px solid var(--oxblood);outline-offset:4px;}
+  .row:hover .yr,.item.open .yr{color:var(--oxblood);}
+  .row:hover h3{text-decoration:underline;text-decoration-color:var(--hair);text-underline-offset:4px;}
+  .yr{font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--faint);padding-top:5px;transition:color .18s;font-variant-numeric:tabular-nums;}
+  .body h3{font-family:"Fraunces",serif;font-weight:460;font-size:22px;line-height:1.25;letter-spacing:-.01em;margin:0 0 6px;display:flex;align-items:baseline;gap:10px;}
+  .chev{font-family:"IBM Plex Mono",monospace;color:var(--faint);font-size:18px;line-height:1;transition:transform .25s,color .18s;flex-shrink:0;}
+  .row:hover .chev{color:var(--oxblood);}
+  .item.open .chev{transform:rotate(90deg);color:var(--oxblood);}
+  .authors{font-size:13.5px;color:var(--faint);font-style:italic;margin:0 0 12px;}
+  .presented{display:flex;align-items:baseline;gap:9px;margin:0 0 12px;}
+  .presented .pl{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--oxblood);flex-shrink:0;padding-top:1px;}
+  .presented .pv{font-size:14px;color:var(--ink);line-height:1.45;}
+  .presented .pv span{color:var(--faint);}
+  .presented .pv .pnote{display:block;margin-top:5px;font-size:12px;}
+  .foot{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;}
+  .tags{display:flex;gap:12px;flex-wrap:wrap;}
+  .tag{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.04em;color:var(--faint);}
+  .status{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--slate);margin-left:auto;display:inline-flex;align-items:center;gap:7px;}
+  .status::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--faint);}
+  .status.live{color:var(--oxblood);}
+  .status.live::before{background:var(--oxblood);}
+
+  /* ---------- reference item (no panel) ---------- */
+  .ref{display:grid;grid-template-columns:50px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--hair);}
+  .ref:first-of-type{border-top:none;}
+  .ref h3{font-family:"Fraunces",serif;font-weight:460;font-size:20px;line-height:1.25;letter-spacing:-.01em;margin:0 0 6px;}
+  .ref h3 a{color:inherit;text-decoration:none;transition:color .18s;}
+  .ref h3 a:hover,.ref h3 a:focus-visible{color:var(--oxblood);}
+  .ref h3 .ext{color:var(--oxblood);font-family:"IBM Plex Mono",monospace;font-size:15px;}
+  .cite{font-size:13.5px;color:var(--faint);margin:0;line-height:1.5;}
+  .body .cite{margin:0 0 12px;}
+  .cite i{font-style:italic;}
+
+  /* expandable panel */
+  .panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .32s ease;}
+  .item.open .panel{grid-template-rows:1fr;}
+  .panel-inner{overflow:hidden;}
+  .panel-pad{padding:2px 0 26px 70px;}
+  .abs-lab{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin:0 0 7px;}
+  .abs{max-width:660px;margin:0 0 20px;}
+  .abs p{font-size:14.5px;line-height:1.7;color:var(--slate);margin:0 0 12px;}
+  .abs p:last-child{margin-bottom:0;}
+  .fig{margin:0 0 16px;max-width:660px;}
+  .fig img{width:100%;max-width:100%;height:auto;display:block;border:1px solid var(--hair);border-radius:3px;}
+  .fig figcaption{font-size:13px;font-weight:400;color:var(--slate);margin-top:9px;line-height:1.55;}
+  .paperlink{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.03em;color:var(--oxblood);text-decoration:none;border-bottom:1px solid var(--hair);padding-bottom:2px;transition:border-color .18s;}
+  .paperlink:hover,.paperlink:focus-visible{border-color:var(--oxblood);}
+  .paperlink.muted{color:var(--slate);border-bottom:none;}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--ink);margin-top:30px;padding:24px 0 8px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--faint);letter-spacing:.04em;}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:860px){
+    .layout{grid-template-columns:1fr;gap:0;padding:0 26px;}
+    .sidebar{position:static;height:auto;padding:48px 0 8px;overflow:visible;}
+    .avatar{width:124px;margin-bottom:22px;}
+    .content{padding-top:30px;}
+    .row,.ref{grid-template-columns:40px 1fr;gap:14px;}
+    .xrole,.edu{grid-template-columns:74px 1fr;gap:14px;}
+    .panel-pad{padding-left:0;}
+    .status{margin-left:0;width:100%;order:5;}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;}html{scroll-behavior:auto;}}
+</style>
+<style id="harmonized-theme">
+  /* ==================================================================
+     HARMONIZED THEME - shares its type system with analogeansichten.de.
+
+     Two families, same split as the photography site:
+       --display  condensed uppercase  -> name + section headings
+       --ui       neutral sans         -> everything else
+
+     >>> SWAP --display for the real condensed face from the photography
+     >>> site. Oswald is a stand-in; the real one is more condensed than
+     >>> anything on Google Fonts.
+
+     Accent options (change --accent, nothing else):
+       #16181C  ink       no accent at all, like the photography site
+       #2B3E5C  ink blue  quiet, still clearly a link          <- current
+       #20514F  petrol    cool green-teal, low-volume
+       #4B5563  graphite  pure neutral, links go quite faint
+     ================================================================== */
+  :root{
+    --display:"Oswald","Oswald SemiCondensed",Impact,sans-serif;
+    --ui:"Inter",-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    --accent:#2B3E5C;
+    --oxblood:var(--accent);   /* every accent in the sheet follows this */
+  }
+
+  body{font-family:var(--ui);font-size:16px;}
+
+  /* ---- the two places the photography site's voice comes through ---- */
+  .sidebar h1{font-family:var(--display);font-weight:500;font-size:27px;
+              letter-spacing:.115em;text-transform:uppercase;line-height:1.15;margin:0 0 13px;}
+  .group-head h2{font-family:var(--display);font-weight:500;font-size:20px;
+                 letter-spacing:.115em;text-transform:uppercase;line-height:1.1;}
+  .group-head{align-items:center;padding:19px 0 11px;}
+  .span{padding-bottom:1px;}
+
+  /* ---- everything else: one neutral sans ---- */
+  .role{font-family:var(--ui);font-size:10.5px;letter-spacing:.15em;
+        text-transform:uppercase;line-height:1.85;}
+  .lede p{font-size:16px;}
+  .bio{font-size:14.5px;}
+  .group-note{font-size:13.5px;}
+
+  .body h3{font-family:var(--ui);font-weight:500;font-size:18.5px;
+           letter-spacing:-.004em;line-height:1.32;}
+  .edu h3,.ref h3{font-family:var(--ui);font-weight:500;font-size:16.5px;letter-spacing:-.003em;}
+  .chev{font-family:var(--ui);font-size:15px;font-weight:300;}
+  .ref h3 .ext{font-family:var(--ui);font-size:13px;}
+
+  .yr,.xrole .yr,.edu .yr{font-family:var(--ui);font-size:12.5px;letter-spacing:.06em;
+                          font-variant-numeric:tabular-nums;}
+  .edu .where{font-family:var(--ui);font-size:12.5px;letter-spacing:.02em;}
+  .tag{font-family:var(--ui);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;}
+  .status{font-family:var(--ui);font-size:10px;letter-spacing:.15em;}
+  .abs-lab,.presented .pl{font-family:var(--ui);font-size:9.5px;letter-spacing:.2em;font-weight:500;}
+  .paperlink{font-family:var(--ui);font-size:11px;letter-spacing:.11em;
+             text-transform:uppercase;font-weight:500;}
+  footer{font-family:var(--ui);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;}
+  .cite,.authors{font-size:13px;}
+
+  /* ---- abstracts: smaller, and broken into paragraphs ---- */
+  .abs{max-width:660px;margin:0 0 20px;}
+  .abs p{font-size:14px;line-height:1.72;color:var(--slate);margin:0 0 12px;}
+  .abs p:last-child{margin-bottom:0;}
+  .fig figcaption{font-size:12.5px;}
+
+  @media(max-width:860px){
+    .sidebar h1{font-size:23px;}
+    .group-head h2{font-size:17px;}
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar">
+    <figure class="avatar">
+      <img src="portrait.jpg" alt="Tobias Hülden">
+    </figure>
+    <h1>Tobias Hülden</h1>
+    <p class="role">Economist · Senior Applied Scientist</p>
+  </aside>
+
+  <!-- ================= CONTENT ================= -->
+  <main class="content">
+
+    <div class="intro">
+      <div class="lede">
+        <p>I am an Economist and Senior Applied Scientist, currently working on experimental and observational <b>causal&nbsp;inference</b> in the domains of <b>digital&nbsp;experimentation</b> and <b>algorithmic&nbsp;pricing</b>.</p>
+        <p>I design, run and analyse <b><span class="nb">large-scale</span> online field&nbsp;experiments</b>, work on <b><span class="nb">long-term</span> measurement&nbsp;problems</b>, and more recently use <b>LLMs for experimentation and economic measurement</b>. Much of this work runs in production, affects millions of customers and articles across Europe, and enables <span class="nb">evidence-based</span> decision&nbsp;making at scale.</p>
+      </div>
+      <p class="bio">My previous work experience has taken me from (central)&nbsp;banking to academic research to consumer tech.</p>
+      <p class="bio">You can reach me on LinkedIn.</p>
+      <p class="bio">Outside of work, I spend quite some time behind a film camera. Some of my favourite photos are <a href="https://analogeansichten.de" target="_blank" rel="noopener noreferrer">here</a>.</p>
+    </div>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="group" id="experience">
+      <div class="group-head"><h2>Work Experience</h2></div>
+
+      <div class="xco">
+        <p class="co">Zalando SE, Berlin, Germany</p>
+        <div class="xrole"><span class="yr">2025 –</span><span class="r">Senior Applied Scientist <span class="area">· Measurement &amp; Experimentation</span></span></div>
+        <div class="xrole"><span class="yr">2022 – 24</span><span class="r">Applied Scientist <span class="area">· Causal Inference for Algorithmic Pricing</span></span></div>
+      </div>
+      <div class="xco">
+        <p class="co">The University of Chicago Booth School of Business, Chicago, USA</p>
+        <div class="xrole"><span class="yr">2020 – 22</span><span class="r">Research Professional for Prof. Michael Weber</span></div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section class="group" id="education">
+      <div class="group-head"><h2>Education</h2></div>
+
+      <div class="edu">
+        <span class="yr">2017 – 20</span>
+        <div>
+          <h3>M.Sc. Economics</h3>
+          <p class="where">University of Bonn, Germany <span class="g">· with distinction · top 3%</span></p>
+          <p class="sub">Including an Erasmus exchange at ENSAE Paris.</p>
+        </div>
+      </div>
+
+      <div class="edu">
+        <span class="yr">2014 – 17</span>
+        <div>
+          <h3>B.Sc. Economics</h3>
+          <p class="where">University of Bonn, Germany <span class="g">· with distinction · top 3%</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ZALANDO PROJECTS ============ -->
+    <section class="group" id="zalando-projects">
+      <div class="group-head"><h2>Zalando · Projects</h2></div>
+
+      <div class="item">
+        <button class="row" aria-expanded="false">
+          <span class="yr">’26</span>
+          <span class="body">
+            <h3>Pricing Experimentation with Personified LLM Agents <span class="chev">›</span></h3>
+            <p class="authors">with H. Gath</p>
+            <span class="presented">
+              <span class="pl">Presented</span>
+              <span class="pv">Zalando Hackathon <span>· March 2026 · 2nd place</span><br>Zalando Software Engineering Conference <span>· June 2026</span></span>
+            </span>
+            <span class="foot">
+              <span class="tags"><span class="tag">LLMs</span><span class="tag">Online experimentation</span><span class="tag">Algorithmic pricing</span></span>
+            </span>
+          </span>
+        </button>
+        <div class="panel"><div class="panel-inner"><div class="panel-pad">
+          <p class="abs-lab">Abstract</p>
+          <div class="abs"><p>We study whether personified large language model (LLM) agents can serve as synthetic customers in a simulation layer for pricing experiments in e-commerce. Using an agent-construction pipeline and an evaluation framework spanning purchase prediction, elasticity elicitation, and replayed A/B tests, we benchmark agentic responses to product-price offerings against observed purchase outcomes, demand elasticities recovered from transaction data, and the materialised treatment effects of pricing experiments at Zalando.</p><p>Three findings stand out. First, agent construction matters. The system prompt and the persona move agent behaviour markedly closer to observed purchase decisions than the base model on its own. Second, personified agents are relatively poor predictors of individual purchase decisions, substantially overstating realised purchase rates and falling short of supervised classifiers trained on the same interactions. They do, however, recover aggregate price elasticities, reproducing the order of magnitude and the cross-group ordering of estimates from realised transaction data. Third, replaying three pricing experiments, agentic outcomes match the direction and significance of the materialised treatment effects on demand, revenue, and profit. Across these experiments, the agentic estimates also track the materialised effects more closely than the incumbent production demand forecast.</p><p>We read this as evidence that current LLMs carry the systematic structure of consumer behaviour and price response, but not the idiosyncratic variation of single decisions. The findings support agentic pricing experimentation as a directional screening layer for pricing innovations that complements live experimentation.</p></div>
+          <figure class="fig">
+            <img src="figs/agentic.png" alt="Standardised treatment effects for demand, revenue and profit">
+            <figcaption>Figure: Standardised treatment effects on demand, revenue and profit across three pricing experiments, comparing actual, agentic and forecast outcomes. The forecast is unavailable for Experiment III, which ran on partner assortment.</figcaption>
+          </figure>
+          <span class="paperlink muted">Draft available on request</span>
+        </div></div></div>
+      </div>
+
+      <div class="item">
+        <button class="row" aria-expanded="false">
+          <span class="yr">’26</span>
+          <span class="body">
+            <h3>Measuring Opportunity Cost with Stock Lifetime Value <span class="chev">›</span></h3>
+            <p class="cite">Decrouez, G., T. Huelden, P. Nakhe and D. Prugger (2026). arXiv:2607.01905 [econ.EM]</p>
+            <span class="presented">
+              <span class="pl">Presented</span>
+              <span class="pv">Workshop on Experimentation for Decision-Making, Columbia Business School <span>· May 2026</span></span>
+            </span>
+            <span class="foot">
+              <span class="tags"><span class="tag">Causal inference</span><span class="tag">Online experimentation</span><span class="tag">Long-term measurement</span></span>
+            </span>
+          </span>
+        </button>
+        <div class="panel"><div class="panel-inner"><div class="panel-pad">
+          <p class="abs-lab">Abstract</p>
+          <div class="abs"><p>Measuring the long-term opportunity cost of interventions remains a critical challenge in e-commerce A/B testing. While strategic levers (such as dynamic pricing, ranking algorithms, and promotional campaigns) trigger shifts in consumer behaviour that persist over months, operational constraints necessitate fast decision-making cycles that are typically limited to weekly experimental windows. Standard metrics like revenue and conversion are inherently short-sighted, biasing decisions toward immediate gains.</p><p>We introduce Stock Lifetime Value (SLV), a stock-centric metric that captures long-term opportunity cost within short experiments by aggregating expected profit from current inventory through the end of its selling lifecycle. We develop the methodology in the context of fashion e-commerce at Zalando, where stock constraints and seasonal lifecycles make the trade off between short-term and long-term outcomes particularly relevant.</p><p>We discuss three applications: (a) SLV efficiency as a metric for article-level and customer-level A/B tests, validated against realized 18-month lifecycle outcomes; (b) SLV as an optimization target for pricing algorithms, aligning the metric used for measurement with the objective used for decision-making; and (c) a framework for annualizing treatment effects into financial reporting metrics required by business stakeholders. While our empirical setting is fashion retail, the framework applies broadly to any inventory-constrained environment where value decays over time or interventions shift demand across periods.</p></div>
+          <figure class="fig">
+            <img src="figs/slv.png" alt="Ground-truth nSLV and remaining stock over a season">
+            <figcaption>Figure: Evolution of ground-truth normalised Stock Lifetime Value (nSLV), discount periods and remaining stock over one Spring/Summer season.</figcaption>
+          </figure>
+          <a class="paperlink" href="https://arxiv.org/abs/2607.01905">Read on arXiv ↗</a>
+        </div></div></div>
+      </div>
+
+      <div class="item">
+        <button class="row" aria-expanded="false">
+          <span class="yr">’25</span>
+          <span class="body">
+            <h3>High-Frequency Pricing at Scale for E-Commerce <span class="chev">›</span></h3>
+            <p class="cite">Birr, S., T. Huelden, M. Raslan et al. (2026). arXiv:2606.13741 [cs.LG]</p>
+            <span class="presented">
+              <span class="pl">Presented</span>
+              <span class="pv">International Symposium on Forecasting, Beijing <span>· July 2025</span>*<span class="pnote">* presented by coauthors</span></span>
+            </span>
+            <span class="foot">
+              <span class="tags"><span class="tag">Demand forecasting</span><span class="tag">Online experimentation</span><span class="tag">Algorithmic pricing</span></span>
+            </span>
+          </span>
+        </button>
+        <div class="panel"><div class="panel-inner"><div class="panel-pad">
+          <p class="abs-lab">Abstract</p>
+          <div class="abs"><p>Sales events present unique challenges for pricing, including volatile demand patterns, rapid pricing decisions, and the need to balance short-term revenue with long-term profitability. This project presents the design, development, and implementation of a specialized forecast-then-optimize algorithmic pricing tool for sales campaigns in fashion e-commerce. We describe our approach combining daily-resolution demand forecasting using gradient-boosted trees with a multi-objective optimization framework that maximizes both long-term profit and net merchandise value for more than 5 million articles. Our solution addresses key limitations of existing weekly-granularity systems by implementing a forecast-then-optimize architecture that reduces pricing decision time from hours to minutes.</p><p>We validate our approach through 23 A/B tests across 12 markets during 2023-2024 sales campaigns at Zalando, one of Europe’s leading online fashion retailers. Experimental results demonstrate that the new pricing system achieves approximately 6% higher profit while maintaining equivalent performance on sales and revenue compared to the previous manual-algorithmic hybrid approach. Based on these results, the algorithm was successfully deployed to production and now handles the majority of algorithmic pricing decisions for sales campaigns at the company.</p></div>
+          <figure class="fig">
+            <img src="figs/highfreq.png" alt="Forecast-then-optimise pricing architecture diagram">
+            <figcaption>Figure: The forecast-then-optimise pricing architecture, from data layer through demand model to the optimiser.</figcaption>
+          </figure>
+          <a class="paperlink" href="https://arxiv.org/abs/2606.13741">Read on arXiv ↗</a>
+        </div></div></div>
+      </div>
+
+      <div class="item">
+        <button class="row" aria-expanded="false">
+          <span class="yr">’24</span>
+          <span class="body">
+            <h3>Human–Machine Interactions in Pricing <span class="chev">›</span></h3>
+            <p class="cite">Huelden, T., V. Jascisens, L. Roemheld and T. Werner (2024). DICE Discussion Paper 412; SSRN 4763132</p>
+            <span class="presented">
+              <span class="pl">Presented</span>
+              <span class="pv">ZEW Conference on the Economics of Information and Communication Technologies, Mannheim <span>· June 2024</span><br>Workshop on AI, Algorithms, and Markets, LUISS Rome <span>· June 2024</span>*<br>Annual Conference of the Verein für Socialpolitik, Berlin <span>· September 2024</span><br>International Industrial Organization Conference, Philadelphia <span>· May 2025</span>*<span class="pnote">* presented by coauthors</span></span>
+            </span>
+            <span class="foot">
+              <span class="tags"><span class="tag">Online experimentation</span><span class="tag">Algorithmic pricing</span><span class="tag">Human–machine interaction</span></span>
+            </span>
+          </span>
+        </button>
+        <div class="panel"><div class="panel-inner"><div class="panel-pad">
+          <p class="abs-lab">Abstract</p>
+          <div class="abs"><p>While many companies use algorithms to optimize pricing, human oversight and manual price interventions remain widespread. Algorithms can set granular prices across products and markets, while human decision-makers may contribute soft information that is not available to the system.</p><p>In our setting, a human override replaces country-specific algorithmic markdowns with a uniform product-level discount across countries. Human discretion may therefore add information but also reduce market-level pricing granularity. Using fine-grained data from one of Europe’s largest e-commerce companies, we study when human discretion improves or damages algorithmic markdown pricing under this trade-off.</p><p>In two field experiments with around 700,000 products, we find substantial heterogeneity in the profit effects of human interventions: some reduce profits, while others improve them. The quality of these interventions can be predicted with existing algorithmic tools, allowing the firm to preserve useful expert input while blocking inefficient overrides.</p></div>
+          <figure class="fig">
+            <img src="figs/humanmachine.png" alt="Price dispersion densities before and after the intervention">
+            <figcaption>Figure: Distribution of the standard deviation of a product&rsquo;s price across countries by experiment groups before and after human price overrides were blocked in the treatment group.</figcaption>
+          </figure>
+          <a class="paperlink" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4763132">Read on SSRN ↗</a>
+        </div></div></div>
+      </div>
+
+      <div class="item">
+        <button class="row" aria-expanded="false">
+          <span class="yr">’24</span>
+          <span class="body">
+            <h3>Causal Impact of Weather on Online Consumer Behaviour <span class="chev">›</span></h3>
+            <span class="foot">
+              <span class="tags"><span class="tag">Causal inference</span><span class="tag">Consumer behaviour</span><span class="tag">Weather variability</span><span class="tag">Consumer demand</span></span>
+            </span>
+          </span>
+        </button>
+        <div class="panel"><div class="panel-inner"><div class="panel-pad">
+          <p class="abs-lab">Abstract</p>
+          <div class="abs"><p>As climate change intensifies weather volatility and weather extremes across the globe, understanding the effects of weather on consumers becomes increasingly critical for business strategy, forecasting, and pricing in the consumer tech industry. This study examines the causal effect of weather conditions on online consumer behaviour, leveraging data from Zalando, a major European online fashion retailer. Analysing a panel dataset covering seven German cities from 2019 to 2024, the study exploits quasi-random daily local weather variation to establish causal identification.</p><p>Results demonstrate that weather significantly influences purchasing behaviour: rainy days increase daily fashion e-commerce sales by 1.3%, while particularly warm and sunny days decrease sales by 1.1% and 1.3% respectively. A mechanism analysis reveals that these effects primarily stem from changes in platform engagement rather than purchasing intensity: rainy weather boosts browsing behaviour by 1.8%, while warm and sunny conditions reduce engagement.</p><p>Weather effects exhibit strong seasonal heterogeneity, with warm days positively affecting demand in spring but negatively in late summer. An analysis of intertemporal substitution shows that while rain and sunshine effects partially reverse in subsequent days, temperature effects persist without significant reversal, suggesting more enduring impacts on demand patterns.</p></div>
+          <figure class="fig">
+            <img src="figs/climate.png" alt="Event-study estimates of weather shocks on daily city-level online fashion demand">
+            <figcaption>Figure: Causal event-study estimates of rain, sunny and warm days on daily city-level online fashion demand, from one day before to seven days after the weather shock, with 95% confidence intervals.</figcaption>
+          </figure>
+        </div></div></div>
+      </div>
+    </section>
+
+    <!-- ============ OTHER PROJECTS ============ -->
+    <section class="group" id="other-projects">
+      <div class="group-head"><h2>Other projects</h2></div>
+
+      <div class="item">
+        <button class="row" aria-expanded="false">
+          <span class="yr">’25</span>
+          <span class="body">
+            <h3>Decoding 75 Years of Fed Speeches with Large Language Models <span class="chev">›</span></h3>
+            <span class="foot">
+              <span class="tags"><span class="tag">LLMs</span><span class="tag">Text as data</span><span class="tag">Central bank communication</span><span class="tag">Monetary policy</span></span>
+            </span>
+          </span>
+        </button>
+        <div class="panel"><div class="panel-inner"><div class="panel-pad">
+          <p class="abs-lab">Abstract</p>
+          <div class="abs"><p>This research project assembles the most comprehensive dataset of Federal Reserve speeches to date by digitising previously untapped historical archives of US central bank communication. The final text corpus comprises 8,012 speeches by 586 officials spanning 1950 to early 2025. Large language models are then used to extract multidimensional measures of speech sentiment, uncertainty, linguistic style and topics.</p><p>The subsequent analysis uncovers stylised facts about 75 years of Fed communication: speech frequency more than doubled after the mid-1990s transparency reforms, and topical priorities shifted substantially in response to contemporaneous economic conditions. Speech sentiment tracks economic cycles closely, varying markedly between expansions and recessions. Most notably, around the 1990s the future appears to have overtaken the present as the dominant horizon in the overall tone of speeches, a transition characterised by growing linguistic accessibility in communication.</p><p>Present and future speech sentiment also carry economically meaningful information. On the day of delivery, speech sentiment moves Treasury rates at the short end of the yield curve by approximately 0.4 basis points, a response driven by its forward-looking component. Pre-meeting sentiment shocks also predict FOMC voting. Here, a positive shock to present-focused speech sentiment is associated with both a lower probability of dissent and less policy inaction.</p></div>
+          <figure class="fig">
+            <img src="figs/fed.png" alt="General sentiment score of Fed speeches, 1950 to 2025">
+            <figcaption>Figure: General sentiment of Federal Reserve speeches, 1950 to 2025, as a 12-month rolling average with recessions shaded.</figcaption>
+          </figure>
+        </div></div></div>
+      </div>
+
+      <div class="item">
+        <button class="row" aria-expanded="false">
+          <span class="yr">’20</span>
+          <span class="body">
+            <h3>Monetary Policy Surprises, Economic Activity and Asset Prices <span class="chev">›</span></h3>
+            <span class="foot">
+              <span class="tags"><span class="tag">High-frequency identification</span><span class="tag">Monetary policy</span><span class="tag">Asset prices</span><span class="tag">Economic activity</span></span>
+            </span>
+          </span>
+        </button>
+        <div class="panel"><div class="panel-inner"><div class="panel-pad">
+          <p class="abs-lab">Abstract</p>
+          <div class="abs"><p>This study builds two new series of US monetary policy surprises using newly digitized financial data, covering almost seven decades, from 1952 to 2020. Using a high-frequency identification strategy applied to daily Treasury yields in a narrow window around FOMC announcements, policy news is decomposed into a Target component, which captures surprises to the current short-term rate of the yield curve, and a Path component, capturing surprises to its expected future path.</p><p>The relative importance of the two surprise types has shifted markedly, consistent with a structural change in the conduct and communication of US monetary policy. The Path share of the average policy surprise held near 40 percent until the early 1980s and stands close to 70 percent today. Since Target surprises correspond to conventional level shifts in the policy rate, while Path surprises reflect news about the future stance conveyed through statements and forward guidance, the rising Path share indicates that communication has become the dominant channel of US monetary policy since the 1990s.</p><p>This shift matters for transmission. Corporate bond spreads and equity returns are driven primarily by Path rather than Target surprises. The evidence is further consistent with a change in the equity market response over time, with no significant reaction to policy surprises around policy meetings and no pre-FOMC announcement drift found for the period before 1981. Contractionary Target surprises lower industrial production, employment and prices. In contrast to much of the existing literature, these effects are considerably stronger in recessions than in expansions.</p></div>
+          <figure class="fig">
+            <img src="figs/thesis.png" alt="Path share of monetary policy surprises over time">
+            <figcaption>Figure: The Path share of US monetary policy surprises between 1952 and 2020, with a smoothed trend.</figcaption>
+          </figure>
+        </div></div></div>
+      </div>
+    </section>
+
+    <!-- ============ CHICAGO PROJECTS ============ -->
+    <section class="group" id="chicago-projects">
+      <div class="group-head"><h2>Chicago Booth · Projects</h2></div>
+      <p class="group-note">Projects I contributed to as Research Professional for Prof. Michael Weber: literature reviews, data preparation, empirical analysis and estimation, working with large-scale household surveys, randomised information experiments, and Nielsen retail scanner data on consumer purchases.</p>
+
+      <div class="ref">
+        <span class="yr">’26</span>
+        <div>
+          <h3><a href="https://doi.org/10.1093/rfs/hhag011">Beliefs and Portfolios: Causal Evidence <span class="ext">↗</span></a></h3>
+          <p class="cite">Beutel, J. and M. Weber (2026). <i>The Review of Financial Studies</i>. doi:10.1093/rfs/hhag011</p>
+        </div>
+      </div>
+
+      <div class="ref">
+        <span class="yr">’23</span>
+        <div>
+          <h3><a href="https://doi.org/10.1057/s41308-022-00175-7">The Expected, Perceived, and Realized Inflation of US Households Before and During the COVID19 Pandemic <span class="ext">↗</span></a></h3>
+          <p class="cite">Weber, M., Y. Gorodnichenko and O. Coibion (2023). <i>IMF Economic Review</i> 71(1), 326–368. doi:10.1057/s41308-022-00175-7</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</div>
+
+<script>
+  document.querySelectorAll('.item > .row').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.item');
+      var open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+</script>
+</body>
+</html>
